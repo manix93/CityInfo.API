@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
@@ -18,6 +19,12 @@ namespace CityInfo.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+                // Wymuszenie formatu wyjściowego jako XML
+                //.AddMvcOptions(o => o.OutputFormatters.Add(
+                //    new XmlDataContractSerializerOutputFormatter()));
+
+                // Zmiana nazewnictwa JSON z camelCase na PascalCase
                 //.AddJsonOptions( o =>
                 //{
                 //    if(o.SerializerSettings.ContractResolver != null)
